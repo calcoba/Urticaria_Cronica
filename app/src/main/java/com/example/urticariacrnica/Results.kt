@@ -45,7 +45,7 @@ class Results : AppCompatActivity() {
 
             samplesSelected.forEachIndexed { i, line -> println("${i}: " + line) }
 
-            Toast.makeText(applicationContext,"Se han guardado las respuestas", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext,"Gráfica mostrada", Toast.LENGTH_SHORT).show()
         }
 
     }
