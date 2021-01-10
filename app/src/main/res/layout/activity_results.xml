@@ -8,21 +8,32 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-
-    <com.jjoe64.graphview.GraphView
-        android:id="@+id/graph"
-        android:layout_width="411dp"
-        android:layout_height="383dp"
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
+        <im.dacer.androidcharts.LineView
+            android:id="@+id/line_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="3dp"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </HorizontalScrollView>
 
     <RadioGroup
         android:id="@+id/scaleSelector"
-        android:layout_width="160dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="30dp"
+        android:layout_width="169dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="12dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/button_show"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,7 +61,7 @@
         android:id="@+id/button_show"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="32dp"
         android:text="@string/button_show"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,12 +70,12 @@
 
     <TextView
         android:id="@+id/selectResults"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_width="338dp"
+        android:layout_height="67dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/selectResults"
         android:textAlignment="center"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/scaleSelector"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,29 +84,31 @@
 
     <TextView
         android:id="@+id/selectSamples"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_width="369dp"
+        android:layout_height="81dp"
+        android:layout_marginTop="32dp"
         android:text="@string/selectSamples"
         android:textAlignment="center"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/graph" />
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView2" />
 
     <EditText
         android:id="@+id/samplesNumber"
-        android:layout_width="112dp"
-        android:layout_height="33dp"
-        android:ems="10"
-        android:hint="@string/samplesHint"
+        android:layout_width="121dp"
+        android:layout_height="55dp"
         android:inputType="numberSigned"
-        android:autofillHints="@string/samplesHint"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/selectResults"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/selectSamples"
-        app:layout_constraintVertical_bias="0.493" />
+        app:layout_constraintVertical_bias="0.435"
+        android:hint="@string/samplesHint"
+        android:text="@string/samplesHint"
+        android:autofillHints="@string/samplesHint" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -36,8 +36,8 @@ class UAS7_scale : AppCompatActivity() {
             val pScore = UASpruritoString.takeLast(1).toInt()
             val totalScoreUAS7 = rScore+pScore
             val path = filesDir.absolutePath
-            val file_path = File("$path/uas7_scores.csv")
-            println(file_path)
+            val filePath = File("$path/uas7_scores.csv")
+            println(filePath)
             file.appendText("$formattedDate,$rScore,$pScore,$totalScoreUAS7\n")
             Toast.makeText(applicationContext,"Se han guardado las respuestas", Toast.LENGTH_SHORT).show()
         }

@@ -8,8 +8,9 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="345dp"
-        android:layout_height="457dp"
+        android:layout_width="336dp"
+        android:layout_height="672dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.384"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,9 +28,9 @@
                 android:text="@string/question1" />
 
             <RadioGroup
+                android:id="@+id/UCT1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/UCT1">
+                android:layout_height="match_parent">
 
                 <RadioButton
                     android:id="@+id/uct10"
@@ -69,9 +70,9 @@
                 android:text="@string/question2" />
 
             <RadioGroup
+                android:id="@+id/UCT2"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/UCT2">
+                android:layout_height="match_parent">
 
                 <RadioButton
                     android:id="@+id/uct20"
@@ -111,9 +112,9 @@
                 android:text="@string/question3" />
 
             <RadioGroup
+                android:id="@+id/UCT3"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/UCT3">
+                android:layout_height="match_parent">
 
                 <RadioButton
                     android:id="@+id/uct30"
@@ -153,9 +154,9 @@
                 android:text="@string/question4" />
 
             <RadioGroup
+                android:id="@+id/UCT4"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/UCT4">
+                android:layout_height="match_parent">
 
                 <RadioButton
                     android:id="@+id/uct40"
@@ -186,14 +187,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/answer_uct5" />
-
-                <Button
-                    android:id="@+id/save_button_uct"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="52dp"
-                    android:text="@string/button_save_uct" />
             </RadioGroup>
+
+            <Button
+                android:id="@+id/save_button_uct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="52dp"
+                android:text="@string/button_save_uct" />
         </LinearLayout>
     </ScrollView>
 

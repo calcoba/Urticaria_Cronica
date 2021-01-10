@@ -4,15 +4,10 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
-import com.google.android.material.appbar.CollapsingToolbarLayout
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
+import im.dacer.androidcharts.LineView
 import kotlinx.android.synthetic.main.activity_results.*
-import kotlinx.android.synthetic.main.activity_u_c_t_scale.*
 import java.io.File
-import java.text.SimpleDateFormat
-import java.util.*
 
 
 class Results : AppCompatActivity() {
@@ -29,12 +24,11 @@ class Results : AppCompatActivity() {
             val samplesNumber = samplesNumber.text.toString()
             println(scaleSelectorName)
             println(samplesNumber)
-            lateinit var fileName: String
-            if (scaleSelectorName=="uas7_selector") {
-                fileName = "/storage/emulated/0/Android/data/com.example.urticariacrnica/files/uas7_scores.csv"
-            }
-            else {
-                fileName = "/storage/emulated/0/Android/data/com.example.urticariacrnica/files/uct_scores.csv"
+            lateinit var fileName : String
+            fileName = if (scaleSelectorName=="uas7_selector") {
+                "/storage/emulated/0/Android/data/com.example.urticariacrnica/files/uas7_scores.csv"
+            } else {
+                "/storage/emulated/0/Android/data/com.example.urticariacrnica/files/uct_scores.csv"
             }
             println(fileName)
 
@@ -44,6 +38,30 @@ class Results : AppCompatActivity() {
             val samplesSelected = scoreList.takeLast(samplesNumber.toInt())
 
             samplesSelected.forEachIndexed { i, line -> println("${i}: " + line) }
+            val dateList = mutableListOf<String>()
+            val sumList = java.util.ArrayList<Int>()
+
+            for (sample in samplesSelected){
+                val sampleDivided = sample.split(",")
+                println(sampleDivided)
+                dateList.add(sampleDivided.first().take(5))
+                sumList.add(sampleDivided.last().toInt())
+
+            }
+            println(dateList)
+            println(sumList)
+
+            val lineView = findViewById<LineView>(R.id.line_view)
+            lineView.setBottomTextList(ArrayList(dateList))
+            lineView.setDataList(arrayListOf(sumList))
+            lineView.setShowPopup(Int.MAX_VALUE)
+            lineView.showPopup
+
+
+
+
+
+
 
             Toast.makeText(applicationContext,"Gráfica mostrada", Toast.LENGTH_SHORT).show()
         }
